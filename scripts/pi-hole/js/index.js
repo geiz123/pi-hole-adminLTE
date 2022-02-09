@@ -822,6 +822,15 @@ function doughnutTooltip(tooltipItems, data) {
 }
 
 $(function () {
+  // TODO Might be a good spot to inject oilchange stuff
+  $.getJSON("api.php?oilchangestats", function (data) {
+    
+    data.forEach(function (arrayItem, idx) {
+      $("#oil_change").prepend(getOilChangeHtml(arrayItem));
+    });
+    
+  });
+
   // Pull in data via AJAX
   updateSummaryData();
 

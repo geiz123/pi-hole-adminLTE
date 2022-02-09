@@ -31,6 +31,14 @@
 <div class="row">
     <div class="col-lg-3 col-sm-6">
         <!-- small box -->
+        <div class="small-box bg-purple no-user-select" id="oil_change" title="Car Oil Change">
+            <div class="icon">
+                <i class="fas fa-oil-can"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <!-- small box -->
         <div class="small-box bg-green no-user-select" id="total_queries" title="only A + AAAA queries">
             <div class="inner">
                 <p>Total queries (<span id="unique_clients">-</span> clients)</p>
@@ -304,6 +312,7 @@ else
 
 <script src="scripts/pi-hole/js/utils.js?v=<?=$cacheVer?>"></script>
 <script src="scripts/pi-hole/js/index.js?v=<?=$cacheVer?>"></script>
+<script src="scripts/pi-hole/js/oilchange.js?v=<?=$cacheVer?>"></script>
 
 <?php
     require "scripts/pi-hole/php/footer.php";

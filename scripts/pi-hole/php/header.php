@@ -417,6 +417,12 @@ if($auth) {
                     </a>
                 </li>
                 <?php if($auth){ ?>
+                <!-- Whitelist -->
+                <li<?php if($scriptname === "oilchange"){ ?> class="active"<?php } ?>>
+                    <a href="oilchange.php">
+                        <i class="fa fa-fw menu-icon fa-oil-can"></i> <span>Oil Change</span>
+                    </a>
+                </li>
                 <!-- Query Log -->
                 <li<?php if($scriptname === "queries.php"){ ?> class="active"<?php } ?>>
                     <a href="queries.php">

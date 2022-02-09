@@ -159,6 +159,11 @@ elseif (isset($_GET['list']))
 	}
 
 	return;
+} elseif (isset($_GET['oilchangestats'])) {
+	// TODO: entry point here
+	require("scripts/pi-hole/php/oilchange/OilChangeDaoImpl.php");
+	$dao = new OilChangeDaoImpl();
+	$data = array_merge($data, $dao->getLastOilChange());
 }
 
 // Other API functions
