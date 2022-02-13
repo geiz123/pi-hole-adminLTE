@@ -109,7 +109,31 @@ if (isset($_GET['tab']) && in_array($_GET['tab'], array("sysadmin"))) {
 <script src="scripts/vendor/jquery.confirm.min.js?v=<?=$cacheVer?>"></script>
 <script src="scripts/pi-hole/js/utils.js?v=<?=$cacheVer?>"></script>
 <script src="scripts/pi-hole/js/oilchange.js?v=<?=$cacheVer?>"></script>
+<script>
+$.getJSON("api.php?oilchangestats", function (data) {
+  
+  // idx zero is reserve for empty input for adding new rows
+  $("#oil_change").append(`<tr>`+ 
+  `<td><input type="text" class="form-control" name="field[0][make]" autocomplete="off" `+ 
+  `spellcheck="false" autocapitalize="none" autocorrect="off" value=""></td>`+
+  `<td><input type="text" class="form-control" name="field[0][model]" autocomplete="off" `+ 
+  `spellcheck="false" autocapitalize="none" autocorrect="off" value=""></td>`+
+  `<td><input type="text" class="form-control" name="field[0][myear]" autocomplete="off" `+ 
+  `spellcheck="false" autocapitalize="none" autocorrect="off" value=""></td>`+
+  `<td><input type="text" class="form-control" name="field[0][color]" autocomplete="off" `+ 
+  `spellcheck="false" autocapitalize="none" autocorrect="off" value=""></td>`+
+  `<td><input type="text" class="form-control" name="field[0][mileage]" autocomplete="off" `+ 
+  `spellcheck="false" autocapitalize="none" autocorrect="off" value=""></td>`+
+  `<td><input type="text" class="form-control" name="field[0][oil_change_dt]" autocomplete="off" `+ 
+  `spellcheck="false" autocapitalize="none" autocorrect="off" value=""></td>`+
+  `</tr>`);
 
+  data.forEach(function (arrayItem, idx) {
+    $("#oil_change").append(getOilChangeHtmlAsEdit(arrayItem, idx+1));
+  });
+  
+});
+</script>
 <?php
 require "scripts/pi-hole/php/footer.php";
 ?>

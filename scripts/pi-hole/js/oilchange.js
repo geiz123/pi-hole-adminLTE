@@ -37,26 +37,3 @@ function getOilChangeHtmlAsEdit(data, idx) {
     `</tr>`;
 }
 
-$.getJSON("api.php?oilchangestats", function (data) {
-  
-  // idx zero is reserve for empty input for adding new rows
-  $("#oil_change").append(`<tr>`+ 
-  `<td><input type="text" class="form-control" name="field[0][make]" autocomplete="off" `+ 
-  `spellcheck="false" autocapitalize="none" autocorrect="off" value=""></td>`+
-  `<td><input type="text" class="form-control" name="field[0][model]" autocomplete="off" `+ 
-  `spellcheck="false" autocapitalize="none" autocorrect="off" value=""></td>`+
-  `<td><input type="text" class="form-control" name="field[0][myear]" autocomplete="off" `+ 
-  `spellcheck="false" autocapitalize="none" autocorrect="off" value=""></td>`+
-  `<td><input type="text" class="form-control" name="field[0][color]" autocomplete="off" `+ 
-  `spellcheck="false" autocapitalize="none" autocorrect="off" value=""></td>`+
-  `<td><input type="text" class="form-control" name="field[0][mileage]" autocomplete="off" `+ 
-  `spellcheck="false" autocapitalize="none" autocorrect="off" value=""></td>`+
-  `<td><input type="text" class="form-control" name="field[0][oil_change_dt]" autocomplete="off" `+ 
-  `spellcheck="false" autocapitalize="none" autocorrect="off" value=""></td>`+
-  `</tr>`);
-
-  data.forEach(function (arrayItem, idx) {
-    $("#oil_change").append(getOilChangeHtmlAsEdit(arrayItem, idx+1));
-  });
-  
-});
